@@ -32,6 +32,18 @@ const keys = [
     ,'<-'
 ]
 
+const handleClick = () => {
+    console.log('clicked')
+}
+
+keys.forEach(key => {
+    const buttonElement = document.createElement('button')
+    buttonElement.textContent = key
+    buttonElement.setAttribute('id', key)
+    buttonElement.addEventListener('click', handleClick)
+    keyboard.append(buttonElement)
+})
+
 const guessRows= [
     ['','','','',''],
     ['','','','',''],
@@ -40,6 +52,8 @@ const guessRows= [
     ['','','','',''],
     ['','','','','']
 ]
+let currentRow = 0
+let currentTile = 0
 
 guessRows.forEach((guessRow, guessRowIndex) => {
     const rowElement = document.createElement('div')
@@ -52,18 +66,3 @@ guessRows.forEach((guessRow, guessRowIndex) => {
     })
     tileDisplay.append(rowElement)
 })
-
-
-
-keys.forEach(key => {
-    const buttonElement = document.createElement('button')
-    buttonElement.textContent = key
-    buttonElement.setAttribute('id', key)
-    buttonElement.addEventListener('click', handleClick)
-    keyboard.append(buttonElement)
-})
-
-
-const handleClick = () => {
-    console.log('clicked')
-}
